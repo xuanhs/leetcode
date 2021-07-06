@@ -40,9 +40,11 @@ public class SizeAndTimeTest {
 
 
         File file = new File(OUTPUT_FILE);
+        //66
         System.out.println(file.length());
 
         File file1 = new File(OUTPUT_FILE_SER);
+        //334
         System.out.println(file1.length());
     }
 
