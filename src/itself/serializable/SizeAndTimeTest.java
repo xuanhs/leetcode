@@ -43,7 +43,7 @@ public class SizeAndTimeTest {
         System.out.println(file.length());
 
         File file1 = new File(OUTPUT_FILE_SER);
-        System.out.println(file.length());
+        System.out.println(file1.length());
     }
 
     private static PersonSer getPersonSer() {
