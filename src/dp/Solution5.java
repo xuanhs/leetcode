@@ -48,12 +48,35 @@ public class Solution5 {
 
     /**
      * 动态规划解决
-     * todo
+     * 不知道是不是dp想得有问题，耗时和内存消耗都增加了
+     * 耗时从36ms到了211ms
+     * 内存消耗从39m到49m
+     * 这个解法就费时费力，不讨好
      *
      * @param s 入参
      * @return 最长回文子串
      */
     public String longestPalindrome(String s) {
-        return "";
+        int len = s.length();
+        if (len <= 1) {
+            return s;
+        }
+        int[][] dp = new int[len][len];
+        int max = 0;
+        int maxl = 0;
+        int maxr = 0;
+        for (int i = 1; i < len; i++) {
+            for (int j = 0; j < i; j++) {
+                if (s.charAt(j) == s.charAt(i) && (i - j <= 2 || dp[j + 1][i - 1] == 1)) {
+                    dp[j][i] = 1;
+                    if (i - j + 1 > max) {
+                        max = i - j + 1;
+                        maxl = j;
+                        maxr = i;
+                    }
+                }
+            }
+        }
+        return s.substring(maxl, maxr + 1);
     }
 }
